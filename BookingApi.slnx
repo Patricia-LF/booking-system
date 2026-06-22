@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="bookingapi.client/bookingapi.client.esproj">
+    <Build />
+    <Deploy />
+  </Project>
+  <Project Path="BookingApi.Server/BookingApi.Server.csproj" />
+</Solution>
