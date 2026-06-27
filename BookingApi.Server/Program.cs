@@ -12,8 +12,17 @@ builder.Services.AddOpenApi();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite("Data Source=booking.db"));
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowReact", policy =>
+        policy.WithOrigins("https://localhost:49678")
+              .AllowAnyMethod()
+              .AllowAnyHeader());
+});
+
 var app = builder.Build();
 
+app.UseCors("AllowReact");
 app.UseDefaultFiles();
 app.MapStaticAssets();
 
