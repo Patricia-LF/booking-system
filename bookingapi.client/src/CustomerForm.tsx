@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import styles from "./CurstomerForm.module.css";
 
 interface Customer {
   id: number;
@@ -60,42 +61,54 @@ function CustomerForm() {
   }
 
   return (
-    <div>
-      <h2>Add Customer</h2>
-      <input
-        type="text"
-        placeholder="Name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Phone"
-        value={phone}
-        onChange={(e) => setPhone(e.target.value)}
-      />
-      <button onClick={handleSubmit}>Add Customer</button>
-      {error && <p style={{ color: "red" }}>{error}</p>}
+    <div className={styles.customers}>
+      <section className={styles["add-customer-container"]}>
+        <h2>Add Customer</h2>
+        <div className={styles.addInput}>
+          <input
+            type="text"
+            placeholder="Name"
+            className={styles.fieldInput}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            className={styles.fieldInput}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Phone"
+            className={styles.fieldInput}
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+          />
+          <button onClick={handleSubmit}>Add Customer</button>
+          {error && <p style={{ color: "red" }}>{error}</p>}
+        </div>
+      </section>
 
-      <h2>Customers</h2>
-      {customers.length === 0 ? (
-        <p>No customers yet.</p>
-      ) : (
-        <ul>
-          {customers.map((customer) => (
-            <li key={customer.id}>
-              {customer.name} — {customer.email} — {customer.phone}
-              <button onClick={() => handleDelete(customer.id)}>Delete</button>
-            </li>
-          ))}
-        </ul>
-      )}
+      <section className={styles["customers-container"]}>
+        <h2>Customers</h2>
+        {customers.length === 0 ? (
+          <p>No customers yet.</p>
+        ) : (
+          <ul className={styles.customerList}>
+            <li>Name — Email — Phone</li>
+            {customers.map((customer) => (
+              <li key={customer.id}>
+                {customer.name} — {customer.email} — {customer.phone}
+                <button onClick={() => handleDelete(customer.id)}>
+                  Delete
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
     </div>
   );
 }

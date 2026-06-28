@@ -7,7 +7,7 @@ import BookingForm from "./BookingForm";
 function App() {
   return (
     <BrowserRouter>
-      <nav>
+      <nav className="nav-links-container">
         <Link to="/">Home</Link>
         <Link to="/customers">Customers</Link>
         <Link to="/services">Services</Link>
