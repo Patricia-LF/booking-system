@@ -1,5 +1,6 @@
 using BookingApi.Server.Data;
 using BookingApi.Server.Models;
+using BookingApi.Server.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -48,8 +49,16 @@ public class BookingController : ControllerBase
     // POST: api/Booking
     // Create booking - add new booking to database. Returns status code 201 (Created) with URL to new resource.
     [HttpPost]
-    public async Task<IActionResult> Create(Booking booking)
+    public async Task<IActionResult> Create(CreateBookingDto dto)
     {
+        var booking = new Booking
+        {
+            CustomerId = dto.CustomerId,
+            ServiceId = dto.ServiceId,
+            StartTime = dto.StartTime,
+            EndTime = dto.EndTime
+        };
+
         _db.Bookings.Add(booking);
         await _db.SaveChangesAsync();
 
