@@ -1,45 +1,26 @@
-import { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import CustomerForm from "./CustomerForm";
 import "./App.css";
-
-interface Service {
-  id: number;
-  name: string;
-  durationMinutes: number;
-  price: number;
-}
+import ServiceForm from "./ServiceForm";
+import BookingForm from "./BookingForm";
 
 function App() {
-  const [services, setServices] = useState<Service[]>([]);
-
-  useEffect(() => {
-    fetchServices();
-  }, []);
-
-  async function fetchServices() {
-    const response = await fetch("https://localhost:7118/api/Service");
-    if (response.ok) {
-      const data = await response.json();
-      setServices(data);
-    }
-  }
-
   return (
-    <div>
-      <h1>Booking System</h1>
-      <h2>Services</h2>
-      {services.length === 0 ? (
-        <p>No services found.</p>
-      ) : (
-        <ul>
-          {services.map((service) => (
-            <li key={service.id}>
-              {service.name} — {service.durationMinutes} min — {service.price}{" "}
-              kr
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
+    <BrowserRouter>
+      <nav>
+        <Link to="/">Home</Link>
+        <Link to="/customers">Customers</Link>
+        <Link to="/services">Services</Link>
+        <Link to="/bookings">Bookings</Link>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<h1>Welcome to Booking System</h1>} />
+        <Route path="/customers" element={<CustomerForm />} />
+        <Route path="/services" element={<ServiceForm />} />
+        <Route path="/bookings" element={<BookingForm />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
