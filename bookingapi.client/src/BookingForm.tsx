@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import styles from "./BookingForm.module.css";
 
 interface Customer {
   id: number;
@@ -94,53 +95,64 @@ function BookingForm() {
   }
 
   return (
-    <div>
-      <h2>Create Booking</h2>
+    <div className={styles.bookings}>
+      <section className={styles["add-booking-container"]}>
+        <h2>Create Booking</h2>
 
-      <select
-        value={customerId}
-        onChange={(e) => setCustomerId(e.target.value)}
-      >
-        <option value="">Select customer</option>
-        {customers.map((c) => (
-          <option key={c.id} value={c.id}>
-            {c.name}
-          </option>
-        ))}
-      </select>
+        <div className={styles.addInput}>
+          <select
+            value={customerId}
+            onChange={(e) => setCustomerId(e.target.value)}
+          >
+            <option value="">Select customer</option>
+            {customers.map((c) => (
+              <option key={c.id} value={c.id}>
+                {c.name}
+              </option>
+            ))}
+          </select>
 
-      <select value={serviceId} onChange={(e) => setServiceId(e.target.value)}>
-        <option value="">Select service</option>
-        {services.map((s) => (
-          <option key={s.id} value={s.id}>
-            {s.name}
-          </option>
-        ))}
-      </select>
+          <select
+            value={serviceId}
+            /*             className={styles.fieldInput} */
+            onChange={(e) => setServiceId(e.target.value)}
+          >
+            <option value="">Select service</option>
+            {services.map((s) => (
+              <option key={s.id} value={s.id}>
+                {s.name}
+              </option>
+            ))}
+          </select>
 
-      <input
-        type="datetime-local"
-        value={startTime}
-        onChange={(e) => setStartTime(e.target.value)}
-      />
+          <input
+            type="datetime-local"
+            className={styles.fieldInput}
+            value={startTime}
+            onChange={(e) => setStartTime(e.target.value)}
+          />
 
-      <button onClick={handleSubmit}>Create Booking</button>
-      {error && <p style={{ color: "red" }}>{error}</p>}
+          <button onClick={handleSubmit}>Create Booking</button>
+          {error && <p style={{ color: "red" }}>{error}</p>}
+        </div>
+      </section>
 
-      <h2>Bookings</h2>
-      {bookings.length === 0 ? (
-        <p>No bookings yet.</p>
-      ) : (
-        <ul>
-          {bookings.map((b) => (
-            <li key={b.id}>
-              {b.customer.name} — {b.service.name} —{" "}
-              {new Date(b.startTime).toLocaleString("sv-SE")}
-              <button onClick={() => handleDelete(b.id)}>Delete</button>
-            </li>
-          ))}
-        </ul>
-      )}
+      <section className={styles["bookings-container"]}>
+        <h2>Bookings</h2>
+        {bookings.length === 0 ? (
+          <p>No bookings yet.</p>
+        ) : (
+          <ul>
+            {bookings.map((b) => (
+              <li key={b.id}>
+                {b.customer.name} — {b.service.name} —{" "}
+                {new Date(b.startTime).toLocaleString("sv-SE")}
+                <button onClick={() => handleDelete(b.id)}>Delete</button>
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
     </div>
   );
 }

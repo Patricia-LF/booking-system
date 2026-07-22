@@ -102,7 +102,7 @@ function CustomerForm() {
               <li key={customer.id}>
                 {customer.name} — {customer.email} — {customer.phone}
                 <button onClick={() => handleDelete(customer.id)}>
-                  Delete
+                  Delete🗑️
                 </button>
               </li>
             ))}

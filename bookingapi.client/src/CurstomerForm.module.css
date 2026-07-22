@@ -3,6 +3,12 @@
   flex-direction: column;
   gap: 5rem;
 }
+
+.add-customer-container h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
 .addInput {
   display: flex;
   gap: 1rem;

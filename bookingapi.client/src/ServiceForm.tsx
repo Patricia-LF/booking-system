@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import styles from "./ServiceForm.module.css";
 
 interface Service {
   id: number;
@@ -64,42 +65,51 @@ function ServiceForm() {
   }
 
   return (
-    <div>
-      <h2>Add Service</h2>
-      <input
-        type="text"
-        placeholder="Name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <input
-        type="number"
-        placeholder="Duration (Min)"
-        value={durationMinutes}
-        onChange={(e) => setDurationMinutes(e.target.value)}
-      />
-      <input
-        type="number"
-        placeholder="Price"
-        value={price}
-        onChange={(e) => setPrice(e.target.value)}
-      />
-      <button onClick={handleSubmit}>Add Service</button>
-      {error && <p style={{ color: "red" }}>{error}</p>}
+    <div className={styles.services}>
+      <section className={styles["add-service-container"]}>
+        <h2>Add Service</h2>
+        <div className={styles.addInput}>
+          <input
+            type="text"
+            placeholder="Name"
+            className={styles.fieldInput}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <input
+            type="number"
+            placeholder="Duration (Min)"
+            className={styles.fieldInput}
+            value={durationMinutes}
+            onChange={(e) => setDurationMinutes(e.target.value)}
+          />
+          <input
+            type="number"
+            placeholder="Price"
+            className={styles.fieldInput}
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+          />
+          <button onClick={handleSubmit}>Add Service</button>
+          {error && <p style={{ color: "red" }}>{error}</p>}
+        </div>
+      </section>
 
-      <h2>Services</h2>
-      {services.length === 0 ? (
-        <p>No services yet.</p>
-      ) : (
-        <ul>
-          {services.map((service) => (
-            <li key={service.id}>
-              {service.name} — {service.durationMinutes} — {service.price}
-              <button onClick={() => handleDelete(service.id)}>Delete</button>
-            </li>
-          ))}
-        </ul>
-      )}
+      <section className={styles["services-container"]}>
+        <h2>Services</h2>
+        {services.length === 0 ? (
+          <p>No services yet.</p>
+        ) : (
+          <ul>
+            {services.map((service) => (
+              <li key={service.id}>
+                {service.name} — {service.durationMinutes} — {service.price}
+                <button onClick={() => handleDelete(service.id)}>Delete</button>
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
     </div>
   );
 }
