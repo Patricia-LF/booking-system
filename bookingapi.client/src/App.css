@@ -11,6 +11,11 @@ td {
   padding-right: 1rem;
 }
 
+img {
+  width: 200px;
+  align-items: center;
+}
+
 .nav-links-container {
   display: flex;
   gap: 4rem;
@@ -23,8 +28,9 @@ td {
   text-decoration: none;
   font-size: 1.5rem;
   font-weight: 800;
+  color: var(--color-primary);
 }
 
 .nav-links-container a:hover {
-  color: rgba(37, 0, 67, 0.619);
+  color: var(--color-primary-dark);
 }
