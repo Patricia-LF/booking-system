@@ -34,6 +34,16 @@ function ServiceForm() {
       return;
     }
 
+    if (parseInt(durationMinutes) < 1) {
+      setError("Duration must be at least 1 minute.");
+      return;
+    }
+
+    if (parseFloat(price) < 0) {
+      setError("Price cannot be negative.");
+      return;
+    }
+
     setError("");
 
     const response = await fetch("https://localhost:7118/api/Service", {
@@ -68,6 +78,10 @@ function ServiceForm() {
     <div className={styles.services}>
       <section className={styles["add-service-container"]}>
         <h2>Add Service</h2>
+        <p>
+          Enter the name of the service (type of service), duration time in
+          minutes and price. Save with button add service.
+        </p>
         <div className={styles.addInput}>
           <input
             type="text"
@@ -79,6 +93,7 @@ function ServiceForm() {
           <input
             type="number"
             placeholder="Duration (Min)"
+            min="1"
             className={styles.fieldInput}
             value={durationMinutes}
             onChange={(e) => setDurationMinutes(e.target.value)}
@@ -86,6 +101,7 @@ function ServiceForm() {
           <input
             type="number"
             placeholder="Price"
+            min="0"
             className={styles.fieldInput}
             value={price}
             onChange={(e) => setPrice(e.target.value)}
@@ -100,7 +116,7 @@ function ServiceForm() {
         {services.length === 0 ? (
           <p>No services yet.</p>
         ) : (
-          <ul>
+          <ul className={styles.serviceList}>
             {services.map((service) => (
               <li key={service.id}>
                 {service.name} — {service.durationMinutes} — {service.price}

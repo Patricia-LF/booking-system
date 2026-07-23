@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import styles from "./CurstomerForm.module.css";
+import styles from "./CustomerForm.module.css";
 
 interface Customer {
   id: number;
@@ -64,6 +64,10 @@ function CustomerForm() {
     <div className={styles.customers}>
       <section className={styles["add-customer-container"]}>
         <h2>Add Customer</h2>
+        <p>
+          Enter the customers name, e-mail and phone number, and save with
+          button add customer.
+        </p>
         <div className={styles.addInput}>
           <input
             type="text"

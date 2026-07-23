@@ -7,6 +7,8 @@ import BookingForm from "./BookingForm";
 function App() {
   return (
     <BrowserRouter>
+      <img src="/src/assets/logo.png"></img>
+
       <nav className="nav-links-container">
         <Link to="/">Home</Link>
         <Link to="/customers">Customers</Link>
@@ -15,7 +17,15 @@ function App() {
       </nav>
 
       <Routes>
-        <Route path="/" element={<h1>Welcome to Booking System</h1>} />
+        <Route
+          path="/"
+          element={
+            <>
+              <h1>Welcome to Studio Exquisite</h1>
+              <p>Manage customers, services and bookings.</p>
+            </>
+          }
+        />
         <Route path="/customers" element={<CustomerForm />} />
         <Route path="/services" element={<ServiceForm />} />
         <Route path="/bookings" element={<BookingForm />} />

@@ -18,6 +18,9 @@
 .fieldInput {
   height: 1rem;
   padding: 5px 5px 5px 15.5px;
+  border: 1px solid var(--color-border);
+  border-radius: 5px;
+  color: var(--color-text-light);
 }
 
 .customers-container h2 {

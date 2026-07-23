@@ -98,10 +98,15 @@ function BookingForm() {
     <div className={styles.bookings}>
       <section className={styles["add-booking-container"]}>
         <h2>Create Booking</h2>
+        <p>
+          Select customer, service, and date for the appointment. Save with
+          button add booking.
+        </p>
 
         <div className={styles.addInput}>
           <select
             value={customerId}
+            className={styles.fieldSelect}
             onChange={(e) => setCustomerId(e.target.value)}
           >
             <option value="">Select customer</option>
@@ -114,7 +119,7 @@ function BookingForm() {
 
           <select
             value={serviceId}
-            /*             className={styles.fieldInput} */
+            className={styles.fieldSelect}
             onChange={(e) => setServiceId(e.target.value)}
           >
             <option value="">Select service</option>
@@ -142,7 +147,7 @@ function BookingForm() {
         {bookings.length === 0 ? (
           <p>No bookings yet.</p>
         ) : (
-          <ul>
+          <ul className={styles.bookingList}>
             {bookings.map((b) => (
               <li key={b.id}>
                 {b.customer.name} — {b.service.name} —{" "}
