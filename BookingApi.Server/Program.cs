@@ -15,12 +15,25 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReact", policy =>
-        policy.SetIsOriginAllowed(origin => new Uri(origin).Host == "localhost")
+        policy.SetIsOriginAllowed(origin =>
+        {
+            var host = new Uri(origin).Host;
+            return host == "localhost" ||
+                   host.EndsWith(".railway.app") ||
+                   host.EndsWith(".vercel.app");
+        })
               .AllowAnyMethod()
               .AllowAnyHeader());
 });
 
 var app = builder.Build();
+
+// Auto-migrate database on startup
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    db.Database.Migrate();
+}
 
 app.UseCors("AllowReact");
 app.UseDefaultFiles();
