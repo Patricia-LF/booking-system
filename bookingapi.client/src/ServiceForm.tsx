@@ -20,7 +20,7 @@ function ServiceForm() {
   }, []);
 
   async function fetchServices() {
-    const response = await fetch("import.meta.env.VITE_API_URL/api/Service");
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/Service`);
     if (response.ok) {
       const data = await response.json();
       setServices(data);
@@ -46,15 +46,18 @@ function ServiceForm() {
 
     setError("");
 
-    const response = await fetch("import.meta.env.VITE_API_URL/api/Service", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name,
-        durationMinutes: parseInt(durationMinutes),
-        price: parseFloat(price),
-      }),
-    });
+    const response = await fetch(
+      `${import.meta.env.VITE_API_URL}/api/Service`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          durationMinutes: parseInt(durationMinutes),
+          price: parseFloat(price),
+        }),
+      },
+    );
 
     if (response.ok) {
       setName("");
@@ -66,7 +69,7 @@ function ServiceForm() {
 
   async function handleDelete(id: number) {
     const response = await fetch(
-      `import.meta.env.VITE_API_URL/api/Service/${id}`,
+      `${import.meta.env.VITE_API_URL}/api/Service/${id}`,
       {
         method: "DELETE",
       },

@@ -20,7 +20,9 @@ function CustomerForm() {
   }, []);
 
   async function fetchCustomers() {
-    const response = await fetch("import.meta.env.VITE_API_URL/api/Customer");
+    const response = await fetch(
+      `${import.meta.env.VITE_API_URL}/api/Customer`,
+    );
     if (response.ok) {
       const data = await response.json();
       setCustomers(data);
@@ -36,11 +38,14 @@ function CustomerForm() {
 
     setError("");
 
-    const response = await fetch("import.meta.env.VITE_API_URL/api/Customer", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, email, phone }),
-    });
+    const response = await fetch(
+      `${import.meta.env.VITE_API_URL}/api/Customer`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, phone }),
+      },
+    );
 
     if (response.ok) {
       setName("");
@@ -52,7 +57,7 @@ function CustomerForm() {
 
   async function handleDelete(id: number) {
     const response = await fetch(
-      `import.meta.env.VITE_API_URL/api/Customer/${id}`,
+      `${import.meta.env.VITE_API_URL}/api/Customer/${id}`,
       {
         method: "DELETE",
       },

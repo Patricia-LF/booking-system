@@ -28,7 +28,9 @@ function BookingForm() {
   }, []);
 
   async function fetchCustomers() {
-    const response = await fetch("import.meta.env.VITE_API_URL/api/Customer");
+    const response = await fetch(
+      `${import.meta.env.VITE_API_URL}/api/Customer`,
+    );
     if (response.ok) {
       const data = await response.json();
       setCustomers(data);
@@ -36,7 +38,7 @@ function BookingForm() {
   }
 
   async function fetchServices() {
-    const response = await fetch("import.meta.env.VITE_API_URL/api/Service");
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/Service`);
     if (response.ok) {
       const data = await response.json();
       setServices(data);
@@ -44,7 +46,7 @@ function BookingForm() {
   }
 
   async function fetchBookings() {
-    const response = await fetch("import.meta.env.VITE_API_URL/api/Booking");
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/Booking`);
     if (response.ok) {
       const data = await response.json();
       setBookings(data);
@@ -65,16 +67,19 @@ function BookingForm() {
 
     setError("");
 
-    const response = await fetch("import.meta.env.VITE_API_URL/api/Booking", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        customerId: parseInt(customerId),
-        serviceId: parseInt(serviceId),
-        startTime: startTime,
-        endTime: end.toISOString().replace("Z", ""),
-      }),
-    });
+    const response = await fetch(
+      `${import.meta.env.VITE_API_URL}/api/Booking`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          customerId: parseInt(customerId),
+          serviceId: parseInt(serviceId),
+          startTime: startTime,
+          endTime: end.toISOString().replace("Z", ""),
+        }),
+      },
+    );
 
     if (response.ok) {
       setCustomerId("");
@@ -86,7 +91,7 @@ function BookingForm() {
 
   async function handleDelete(id: number) {
     const response = await fetch(
-      `import.meta.env.VITE_API_URL/api/Booking/${id}`,
+      `${import.meta.env.VITE_API_URL}/api/Booking/${id}`,
       {
         method: "DELETE",
       },
