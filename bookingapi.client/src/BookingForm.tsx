@@ -28,7 +28,7 @@ function BookingForm() {
   }, []);
 
   async function fetchCustomers() {
-    const response = await fetch("https://localhost:7118/api/Customer");
+    const response = await fetch("import.meta.env.VITE_API_URL/api/Customer");
     if (response.ok) {
       const data = await response.json();
       setCustomers(data);
@@ -36,7 +36,7 @@ function BookingForm() {
   }
 
   async function fetchServices() {
-    const response = await fetch("https://localhost:7118/api/Service");
+    const response = await fetch("import.meta.env.VITE_API_URL/api/Service");
     if (response.ok) {
       const data = await response.json();
       setServices(data);
@@ -44,7 +44,7 @@ function BookingForm() {
   }
 
   async function fetchBookings() {
-    const response = await fetch("https://localhost:7118/api/Booking");
+    const response = await fetch("import.meta.env.VITE_API_URL/api/Booking");
     if (response.ok) {
       const data = await response.json();
       setBookings(data);
@@ -65,7 +65,7 @@ function BookingForm() {
 
     setError("");
 
-    const response = await fetch("https://localhost:7118/api/Booking", {
+    const response = await fetch("import.meta.env.VITE_API_URL/api/Booking", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -85,9 +85,12 @@ function BookingForm() {
   }
 
   async function handleDelete(id: number) {
-    const response = await fetch(`https://localhost:7118/api/Booking/${id}`, {
-      method: "DELETE",
-    });
+    const response = await fetch(
+      `import.meta.env.VITE_API_URL/api/Booking/${id}`,
+      {
+        method: "DELETE",
+      },
+    );
 
     if (response.ok) {
       fetchBookings();
