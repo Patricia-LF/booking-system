@@ -108,17 +108,17 @@ function CustomerForm() {
         {customers.length === 0 ? (
           <p>No customers yet.</p>
         ) : (
-          <ul className={styles.customerList}>
-            <li>Name — Email — Phone</li>
+          <div className={styles.customerList}>
+            {/* <li>Name — Email — Phone</li> */}
             {customers.map((customer) => (
-              <li key={customer.id}>
-                {customer.name} — {customer.email} — {customer.phone}
+              <div className={styles.customerCard} key={customer.id}>
+                {customer.name} {customer.email} {customer.phone}
                 <button onClick={() => handleDelete(customer.id)}>
                   Delete🗑️
                 </button>
-              </li>
+              </div>
             ))}
-          </ul>
+          </div>
         )}
       </section>
     </div>

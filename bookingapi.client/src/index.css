@@ -128,7 +128,7 @@ button {
   background: var(--color-primary);
   border: 1px solid var(--color-border);
   border-radius: 5px;
-  color: var(--color-text);
+  color: #313127;
   padding: 5px;
 }
 
