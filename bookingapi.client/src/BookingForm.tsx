@@ -133,7 +133,7 @@ function BookingForm() {
             <option value="">Select service</option>
             {services.map((s) => (
               <option key={s.id} value={s.id}>
-                {s.name}
+                {s.name} {s.durationMinutes}
               </option>
             ))}
           </select>
