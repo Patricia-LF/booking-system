@@ -49,11 +49,11 @@
 } */
 
 .customerCard {
-  width: 270px;
+  width: 300px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 40px;
+  /*  gap: 40px; */
   background-color: #ffffff7e;
   border: 1px solid var(--color-border);
   border-radius: 8px;
