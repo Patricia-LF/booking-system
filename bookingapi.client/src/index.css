@@ -132,7 +132,7 @@ button {
 }
 
 button:hover {
-  box-shadow: 2px 2px 8px var(--color-primary-dark);
+  box-shadow: 0px 0px 10px var(--color-primary-dark);
 }
 
 .delete-icon {
