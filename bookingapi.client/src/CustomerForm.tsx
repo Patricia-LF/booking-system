@@ -98,7 +98,7 @@ function CustomerForm() {
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
           />
-          <button onClick={handleSubmit}>Add Customer</button>
+          <button onClick={handleSubmit}>+ Add Customer</button>
           {error && <p style={{ color: "red" }}>{error}</p>}
         </div>
       </section>
@@ -114,7 +114,11 @@ function CustomerForm() {
               <div className={styles.customerCard} key={customer.id}>
                 {customer.name} {customer.email} {customer.phone}
                 <button onClick={() => handleDelete(customer.id)}>
-                  Delete🗑️
+                  <img
+                    src="/assets/icons/delete.png"
+                    alt="Delete"
+                    className="delete-icon"
+                  ></img>
                 </button>
               </div>
             ))}

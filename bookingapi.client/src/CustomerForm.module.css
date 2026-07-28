@@ -28,13 +28,16 @@
 }
 
 .customerList {
-  display: flex;
-  /* flex-direction: column; */
-  gap: 1rem;
-  margin: 2rem;
-  /* flex-wrap: wrap; */
-  width: 350px;
   text-align: left;
+  gap: 1rem;
+  /* width: 350px; */
+  margin: 2rem;
+  display: flex;
+  /* padding: 1rem; */
+  flex-wrap: wrap;
+  /* width: 100vw; */
+  justify-self: center;
+  justify-content: center;
 }
 
 /* .customerList li {
@@ -46,9 +49,11 @@
 } */
 
 .customerCard {
+  width: 270px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 40px;
   background-color: #ffffff7e;
   border: 1px solid var(--color-border);
   border-radius: 8px;

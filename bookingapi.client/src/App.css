@@ -5,15 +5,22 @@
   text-align: center;
 }
 
+.logo-container {
+  width: 100%;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
 th,
 td {
   padding-left: 1rem;
   padding-right: 1rem;
 }
 
-img {
+.logo {
   width: 200px;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 .nav-links-container {

@@ -7,7 +7,9 @@ import BookingForm from "./BookingForm";
 function App() {
   return (
     <BrowserRouter>
-      <img src="src/assets/logo.png"></img>
+      <div className="logo-container">
+        <img src="/assets/images/exquisite-logo.png" className="logo"></img>
+      </div>
 
       <nav className="nav-links-container">
         <Link to="/">Home</Link>
