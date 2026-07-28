@@ -109,10 +109,27 @@ function CustomerForm() {
           <p>No customers yet.</p>
         ) : (
           <div className={styles.customerList}>
-            {/* <li>Name — Email — Phone</li> */}
             {customers.map((customer) => (
               <div className={styles.customerCard} key={customer.id}>
-                {customer.name} {customer.email} {customer.phone}
+                <div className={styles.customerInfo}>
+                  <div className={styles.customerName}>{customer.name} </div>
+                  <div className={styles.customerRow}>
+                    <img
+                      src="/assets/icons/email.png"
+                      alt="email"
+                      className="card-icons"
+                    ></img>
+                    {customer.email}{" "}
+                  </div>
+                  <div className={styles.customerRow}>
+                    <img
+                      src="/assets/icons/phone.png"
+                      alt="phone"
+                      className="card-icons"
+                    ></img>
+                    {customer.phone}
+                  </div>
+                </div>
                 <button onClick={() => handleDelete(customer.id)}>
                   <img
                     src="/assets/icons/delete.png"

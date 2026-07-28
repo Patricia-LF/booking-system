@@ -23,6 +23,11 @@ td {
   margin-bottom: 20px;
 }
 
+.card-icons {
+  width: 20px;
+  height: 20px;
+}
+
 .nav-links-container {
   display: flex;
   gap: 4rem;

@@ -28,16 +28,51 @@
 }
 
 .serviceList {
-  display: flex;
-  flex-direction: column;
+  text-align: left;
   gap: 1rem;
+  /* width: 350px; */
   margin: 2rem;
+  display: flex;
+  /* padding: 1rem; */
+  flex-wrap: wrap;
+  /* width: 100vw; */
+  justify-self: center;
+  justify-content: center;
 }
 
-.serviceList li {
+/* .serviceList li {
   display: flex;
   gap: 1rem;
   justify-content: space-around;
   border: 1px solid black;
   padding: 5px;
+} */
+
+.serviceCard {
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /*  gap: 40px; */
+  background-color: #ffffff7e;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.serviceName {
+  font-weight: 700;
+}
+
+.serviceInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.serviceRow {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }

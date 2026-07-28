@@ -112,7 +112,7 @@ function ServiceForm() {
             value={price}
             onChange={(e) => setPrice(e.target.value)}
           />
-          <button onClick={handleSubmit}>Add Service</button>
+          <button onClick={handleSubmit}>+ Add Service</button>
           {error && <p style={{ color: "red" }}>{error}</p>}
         </div>
       </section>
@@ -122,14 +122,39 @@ function ServiceForm() {
         {services.length === 0 ? (
           <p>No services yet.</p>
         ) : (
-          <ul className={styles.serviceList}>
+          <div className={styles.serviceList}>
             {services.map((service) => (
-              <li key={service.id}>
-                {service.name} — {service.durationMinutes} — {service.price}
-                <button onClick={() => handleDelete(service.id)}>Delete</button>
-              </li>
+              <div className={styles.serviceCard} key={service.id}>
+                <div className={styles.serviceInfo}>
+                  <div className={styles.serviceName}>{service.name}</div>
+                  <div className={styles.serviceRow}>
+                    <img
+                      src="/assets/icons/time.png"
+                      alt="time"
+                      className="card-icons"
+                    ></img>{" "}
+                    {service.durationMinutes} min
+                  </div>
+                  <div className={styles.serviceRow}>
+                    <img
+                      src="/assets/icons/price.png"
+                      alt="price"
+                      className="card-icons"
+                    ></img>{" "}
+                    {service.price} kr
+                  </div>
+                </div>
+                <button onClick={() => handleDelete(service.id)}>
+                  {" "}
+                  <img
+                    src="/assets/icons/delete.png"
+                    alt="Delete"
+                    className="delete-icon"
+                  ></img>
+                </button>
+              </div>
             ))}
-          </ul>
+          </div>
         )}
       </section>
     </div>
