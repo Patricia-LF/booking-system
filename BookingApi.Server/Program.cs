@@ -10,7 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlite("Data Source=booking.db"));
+    options.UseSqlite("Data Source=/app/data/booking.db"));
 
 builder.Services.AddCors(options =>
 {
