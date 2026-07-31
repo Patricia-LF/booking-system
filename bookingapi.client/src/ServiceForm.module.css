@@ -28,15 +28,10 @@
 }
 
 .serviceList {
-  text-align: left;
+  display: grid;
+  grid-template-columns: repeat(2, 355px);
   gap: 1rem;
-  /* width: 350px; */
-  margin: 2rem;
-  display: flex;
-  /* padding: 1rem; */
-  flex-wrap: wrap;
-  /* width: 100vw; */
-  justify-self: center;
+  margin: 2rem auto;
   justify-content: center;
 }
 
