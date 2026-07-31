@@ -49,7 +49,11 @@ function BookingForm() {
     const response = await fetch(`${import.meta.env.VITE_API_URL}/api/Booking`);
     if (response.ok) {
       const data = await response.json();
-      setBookings(data);
+      const sorted = data.sort(
+        (a: any, b: any) =>
+          new Date(a.startTime).getTime() - new Date(b.startTime).getTime(),
+      );
+      setBookings(sorted);
     }
   }
 
@@ -155,15 +159,41 @@ function BookingForm() {
         {bookings.length === 0 ? (
           <p>No bookings yet.</p>
         ) : (
-          <ul className={styles.bookingList}>
-            {bookings.map((b) => (
-              <li key={b.id}>
-                {b.customer.name} — {b.service.name} —{" "}
-                {new Date(b.startTime).toLocaleString("sv-SE")}
-                <button onClick={() => handleDelete(b.id)}>Delete</button>
-              </li>
-            ))}
-          </ul>
+          <table className={styles.bookingList}>
+            <thead className={styles.tableHead}>
+              <tr className={styles.tableHeadRow}>
+                <td>Customer</td>
+                <td>Service</td>
+                <td>Date</td>
+                <td>Start time</td>
+                <td></td>
+              </tr>
+            </thead>
+            <tbody className={styles.tableBody}>
+              {bookings.map((b) => (
+                <tr className={styles.BookingRow} key={b.id}>
+                  <td className={styles.customerName}>{b.customer.name}</td>
+                  <td className={styles.serviceName}>{b.service.name}</td>
+                  <td>{new Date(b.startTime).toLocaleDateString("sv-SE")}</td>
+                  <td>
+                    {new Date(b.startTime).toLocaleTimeString("sv-SE", {
+                      hour: "2-digit",
+                      minute: "2-digit",
+                    })}
+                  </td>
+                  <td className={styles.deleteBtn}>
+                    <button onClick={() => handleDelete(b.id)}>
+                      <img
+                        src="/assets/icons/delete.png"
+                        alt="Delete"
+                        className="delete-icon"
+                      ></img>
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         )}
       </section>
     </div>
