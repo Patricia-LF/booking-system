@@ -28,8 +28,8 @@ A full-stack booking system built as a side project to explore C# and REST API d
 
 ## Project Structure
 
-BookingApi.Server/ # C# REST API
-bookingapi.client/ # React + TypeScript frontend
+- BookingApi.Server/ # C# REST API
+- bookingapi.client/ # React + TypeScript frontend
 
 ## Deployment
 
