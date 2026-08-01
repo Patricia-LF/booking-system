@@ -113,8 +113,8 @@ function BookingForm() {
       <section className={styles["add-booking-container"]}>
         <h2>Create Booking</h2>
         <p>
-          Select customer, service, and date for the appointment. Save with
-          button add booking.
+          Select customer, service, date and start time for the appointment.
+          Save with button +Add booking.
         </p>
 
         <div className={styles.addInput}>

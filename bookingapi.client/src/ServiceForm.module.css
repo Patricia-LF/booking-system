@@ -5,6 +5,7 @@
 }
 
 .add-service-container h2 {
+  font-family: var(--sans);
   font-size: 2rem;
   margin-bottom: 20px;
 }
@@ -16,6 +17,7 @@
 }
 
 .fieldInput {
+  font-family: var(--mono);
   height: 1rem;
   padding: 5px 5px 5px 15.5px;
   border: 1px solid var(--color-border);
@@ -44,6 +46,7 @@
 } */
 
 .serviceCard {
+  font-family: var(--mono);
   width: 300px;
   display: flex;
   justify-content: space-between;

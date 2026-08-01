@@ -5,6 +5,7 @@
 }
 
 .add-booking-container h2 {
+  font-family: var(--sans);
   font-size: 2rem;
   margin-bottom: 20px;
 }
@@ -16,6 +17,7 @@
 }
 
 .fieldInput {
+  font-family: var(--mono);
   height: 1.2rem;
   padding: 5px 5px 5px 15.5px;
   border: 1px solid var(--color-border);
@@ -24,6 +26,7 @@
 }
 
 .fieldSelect {
+  font-family: var(--mono);
   border: 1px solid var(--color-border);
   border-radius: 5px;
   padding: 5px;
@@ -31,6 +34,7 @@
 }
 
 .bookings-container h2 {
+  font-family: var(--sans);
   font-size: 2rem;
 }
 

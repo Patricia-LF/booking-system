@@ -74,7 +74,7 @@ function CustomerForm() {
         <h2>Add Customer</h2>
         <p>
           Enter the customers name, e-mail and phone number, and save with
-          button add customer.
+          button +Add customer.
         </p>
         <div className={styles.addInput}>
           <input

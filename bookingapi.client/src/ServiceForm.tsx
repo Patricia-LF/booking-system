@@ -85,8 +85,8 @@ function ServiceForm() {
       <section className={styles["add-service-container"]}>
         <h2>Add Service</h2>
         <p>
-          Enter the name of the service (type of service), duration time in
-          minutes and price. Save with button add service.
+          Enter the name of the service (type of service), duration time (in
+          minutes), and price. Save with button +Add service.
         </p>
         <div className={styles.addInput}>
           <input

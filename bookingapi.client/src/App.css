@@ -13,6 +13,7 @@
 
 th,
 td {
+  font-family: var(--mono);
   padding-left: 1rem;
   padding-right: 1rem;
 }
@@ -37,6 +38,7 @@ td {
 }
 
 .nav-links-container a {
+  font-family: var(--mono);
   text-decoration: none;
   font-size: 1.5rem;
   font-weight: 800;
