@@ -20,6 +20,16 @@
   --color-card: #ffffff;
   --color-pink-light: #f1fce8; /* accent */
 
+  /* FullCalendar styling */
+  --fc-border-color: var(--color-border);
+  --fc-today-bg-color: rgba(139, 131, 98, 0.1);
+  --fc-event-bg-color: #8b8362;
+  --fc-event-border-color: #6b6448;
+  --fc-button-bg-color: #8b8362;
+  --fc-button-border-color: #6b6448;
+  --fc-button-active-bg-color: #6b6448;
+  --fc-button-hover-bg-color: #6b6448;
+
   --sans: system-ui, "Segoe UI", Roboto, sans-serif;
   --heading: system-ui, "Segoe UI", Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;

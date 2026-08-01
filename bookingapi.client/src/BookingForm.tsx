@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import styles from "./BookingForm.module.css";
+import CalendarView from "./CalendarView";
 
 interface Customer {
   id: number;
@@ -20,6 +21,7 @@ function BookingForm() {
   const [startTime, setStartTime] = useState("");
   const [bookings, setBookings] = useState<any[]>([]);
   const [error, setError] = useState("");
+  const [showCalendar, setShowCalendar] = useState(false);
 
   useEffect(() => {
     fetchCustomers();
@@ -155,9 +157,17 @@ function BookingForm() {
       </section>
 
       <section className={styles["bookings-container"]}>
-        <h2>Bookings</h2>
+        <div className={styles.bookingsHeader}>
+          <h2>Bookings</h2>
+          <button onClick={() => setShowCalendar(!showCalendar)}>
+            {showCalendar ? "Show table" : "Show calendar"}
+          </button>
+        </div>
+
         {bookings.length === 0 ? (
           <p>No bookings yet.</p>
+        ) : showCalendar ? (
+          <CalendarView bookings={bookings} />
         ) : (
           <table className={styles.bookingList}>
             <thead className={styles.tableHead}>
