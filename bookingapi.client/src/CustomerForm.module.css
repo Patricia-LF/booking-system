@@ -12,6 +12,7 @@
 
 .addInput {
   display: flex;
+  flex-direction: column;
   gap: 1rem;
   justify-content: center;
 }
@@ -66,4 +67,26 @@
   display: flex;
   align-items: center;
   gap: 5px;
+}
+
+@media (max-width: 768px) {
+  .addInput {
+    flex-direction: column;
+    margin-top: 2rem;
+  }
+
+  .fieldInput,
+  button {
+    height: 2rem;
+  }
+
+  .customerList {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .customerCard {
+    width: 70vw;
+    align-self: center;
+  }
 }
