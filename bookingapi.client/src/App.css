@@ -5,12 +5,6 @@
   text-align: center;
 }
 
-.logo-container {
-  width: 100%;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
 th,
 td {
   font-family: var(--mono);
@@ -18,33 +12,13 @@ td {
   padding-right: 1rem;
 }
 
-.logo {
-  width: 200px;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
 .card-icons {
   width: 20px;
   height: 20px;
 }
 
-.nav-links-container {
-  display: flex;
-  gap: 4rem;
-  width: 100%;
-  justify-content: center;
-  margin-bottom: 4rem;
-}
-
-.nav-links-container a {
-  font-family: var(--mono);
-  text-decoration: none;
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--color-primary);
-}
-
-.nav-links-container a:hover {
-  color: var(--color-primary-dark);
+@media (max-width: 768px) {
+  h1 {
+    line-height: 1;
+  }
 }
