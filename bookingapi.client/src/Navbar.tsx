@@ -25,9 +25,19 @@ function Navbar() {
 
       {/* Hamburger button - only visible on mobile */}
       <button className={styles.hamburger} onClick={() => setIsOpen(!isOpen)}>
-        <span></span>
-        <span></span>
-        <span></span>
+        {isOpen ? (
+          <img
+            src="/assets/icons/close.png"
+            alt="close"
+            className={styles.closeIcon}
+          ></img>
+        ) : (
+          <>
+            <span></span>
+            <span></span>
+            <span></span>
+          </>
+        )}
       </button>
 
       {/* Mobile menu */}
