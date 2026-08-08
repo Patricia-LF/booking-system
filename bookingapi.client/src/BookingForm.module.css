@@ -45,14 +45,6 @@
   margin: 2rem;
 }
 
-/* .bookingList li {
-  display: flex;
-  gap: 1rem;
-  justify-content: space-around;
-  border: 1px solid black;
-  padding: 5px;
-} */
-
 .tableHead {
   border-bottom: 2px solid var(--color-border);
 }
@@ -83,4 +75,41 @@ td {
 
 .deleteBtn {
   text-align: end;
+}
+
+@media (max-width: 768px) {
+  .addInput {
+    flex-direction: column;
+    margin-top: 2rem;
+  }
+
+  .fieldInput,
+  .fieldSelect,
+  button {
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
+  }
+
+  .tableHeadRow td {
+    font-size: 1rem;
+  }
+
+  .bookingList {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    margin: 10px;
+    margin-top: 20px;
+  }
+
+  .BookingRow {
+    padding: 10px 0px;
+  }
+
+  .bookings-container h2 {
+    margin-bottom: 20px;
+  }
 }

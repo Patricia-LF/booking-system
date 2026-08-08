@@ -172,18 +172,16 @@ function BookingForm() {
           <table className={styles.bookingList}>
             <thead className={styles.tableHead}>
               <tr className={styles.tableHeadRow}>
-                <td>Customer</td>
-                <td>Service</td>
                 <td>Date</td>
                 <td>Start time</td>
+                <td>Customer</td>
+                <td>Service</td>
                 <td></td>
               </tr>
             </thead>
             <tbody className={styles.tableBody}>
               {bookings.map((b) => (
                 <tr className={styles.BookingRow} key={b.id}>
-                  <td className={styles.customerName}>{b.customer.name}</td>
-                  <td className={styles.serviceName}>{b.service.name}</td>
                   <td>{new Date(b.startTime).toLocaleDateString("sv-SE")}</td>
                   <td>
                     {new Date(b.startTime).toLocaleTimeString("sv-SE", {
@@ -191,6 +189,8 @@ function BookingForm() {
                       minute: "2-digit",
                     })}
                   </td>
+                  <td className={styles.customerName}>{b.customer.name}</td>
+                  <td className={styles.serviceName}>{b.service.name}</td>
                   <td className={styles.deleteBtn}>
                     <button onClick={() => handleDelete(b.id)}>
                       <img

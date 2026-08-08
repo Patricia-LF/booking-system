@@ -12,7 +12,7 @@
   --color-text-light: #878572;
   --color-border: #dae8c4;
   --color-card: #ffffff;
-  --color-pink-light: #f1fce8; /* accent */
+  --color-green-light: #f1fce8; /* accent */
 
   /* FullCalendar styling */
   --fc-border-color: var(--color-border);
@@ -160,4 +160,42 @@ button:hover {
 }
 
 @media (max-width: 768px) {
+  .fc .fc-toolbar-title {
+    font-size: 1em;
+    text-align: center;
+  }
+
+  .fc-day {
+    font-size: 0.8rem;
+  }
+
+  .fc .fc-timegrid-axis-cushion {
+    font-size: 0.8rem;
+  }
+
+  .fc-timegrid-slot-label-cushion {
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .fc-direction-ltr .fc-toolbar > * > :not(:first-child) {
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+  }
+
+  .fc-direction-ltr .fc-button-group > .fc-button:not(:last-child) {
+    display: flex;
+    align-items: center;
+  }
+
+  .fc-direction-ltr .fc-button-group > .fc-button:not(:first-child) {
+    display: flex;
+    align-items: center;
+  }
+
+  button {
+    background: var(--color-primary);
+  }
 }
