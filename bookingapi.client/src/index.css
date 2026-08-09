@@ -196,6 +196,7 @@ button:hover {
   }
 
   button {
-    background: var(--color-primary);
+    box-shadow: 0px 0px 10px var(--color-primary-dark);
+    margin-top: 10px;
   }
 }

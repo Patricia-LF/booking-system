@@ -12,7 +12,7 @@
 
 .addInput {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 1rem;
   justify-content: center;
 }
@@ -88,5 +88,11 @@
   .customerCard {
     width: 70vw;
     align-self: center;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .customerInfo {
+    align-self: flex-start;
   }
 }

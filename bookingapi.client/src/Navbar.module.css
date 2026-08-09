@@ -75,6 +75,7 @@
   .hamburger {
     display: flex;
     justify-self: flex-end;
+    box-shadow: none;
   }
 
   .hamburger:hover {

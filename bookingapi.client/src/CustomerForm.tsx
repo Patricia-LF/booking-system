@@ -36,6 +36,25 @@ function CustomerForm() {
       return;
     }
 
+    const nameRegex = /^[a-zA-ZåäöÅÄÖ\s\-]+$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^[0-9+\s\-]{7,15}$/;
+
+    if (!nameRegex.test(name)) {
+      setError("Name can only contain letters and hyphens.");
+      return;
+    }
+
+    if (!emailRegex.test(email)) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+
+    if (!phoneRegex.test(phone)) {
+      setError("Phone number can only contain digits, +, spaces and hyphens.");
+      return;
+    }
+
     setError("");
 
     const response = await fetch(
@@ -99,8 +118,8 @@ function CustomerForm() {
             onChange={(e) => setPhone(e.target.value)}
           />
           <button onClick={handleSubmit}>+ Add Customer</button>
-          {error && <p style={{ color: "red" }}>{error}</p>}
         </div>
+        {error && <p style={{ color: "red" }}>{error}</p>}
       </section>
 
       <section className={styles["customers-container"]}>
