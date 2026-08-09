@@ -34,8 +34,19 @@ function ServiceForm() {
       return;
     }
 
+    const nameRegex = /^[a-zA-ZåäöÅÄÖ\s\-]+$/;
+    if (!nameRegex.test(name)) {
+      setError("Name can only contain letters and hyphens.");
+      return;
+    }
+
     if (parseInt(durationMinutes) < 1) {
       setError("Duration must be at least 1 minute.");
+      return;
+    }
+
+    if (parseInt(durationMinutes) > 480) {
+      setError("Duration can be at most 480 minute.");
       return;
     }
 
@@ -46,13 +57,6 @@ function ServiceForm() {
 
     if (parseFloat(price) > 10000) {
       setError("Price cannot exceed 10,000 kr.");
-      return;
-    }
-
-    const nameRegex = /^[a-zA-ZåäöÅÄÖ\s\-]+$/;
-
-    if (!nameRegex.test(name)) {
-      setError("Name can only contain letters and hyphens.");
       return;
     }
 
