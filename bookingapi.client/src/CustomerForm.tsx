@@ -38,7 +38,8 @@ function CustomerForm() {
 
     const nameRegex = /^[a-zA-ZåäöÅÄÖ\s\-]+$/;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const phoneRegex = /^[0-9+\s\-]{7,15}$/;
+    const phoneFormatRegex = /^[0-9+\s\-]+$/;
+    const phoneLengthRegex = /^[0-9+\s\-]{7,15}$/;
 
     if (!nameRegex.test(name)) {
       setError("Name can only contain letters and hyphens.");
@@ -50,8 +51,13 @@ function CustomerForm() {
       return;
     }
 
-    if (!phoneRegex.test(phone)) {
+    if (!phoneFormatRegex.test(phone)) {
       setError("Phone number can only contain digits, +, spaces and hyphens.");
+      return;
+    }
+
+    if (!phoneLengthRegex.test(phone)) {
+      setError("Phone number must be between 7 and 15 characters.");
       return;
     }
 
