@@ -44,6 +44,18 @@ function ServiceForm() {
       return;
     }
 
+    if (parseFloat(price) > 10000) {
+      setError("Price cannot exceed 10,000 kr.");
+      return;
+    }
+
+    const nameRegex = /^[a-zA-ZåäöÅÄÖ\s\-]+$/;
+
+    if (!nameRegex.test(name)) {
+      setError("Name can only contain letters and hyphens.");
+      return;
+    }
+
     setError("");
 
     const response = await fetch(
@@ -113,8 +125,8 @@ function ServiceForm() {
             onChange={(e) => setPrice(e.target.value)}
           />
           <button onClick={handleSubmit}>+ Add Service</button>
-          {error && <p style={{ color: "red" }}>{error}</p>}
         </div>
+        {error && <p style={{ color: "red" }}>{error}</p>}
       </section>
 
       <section className={styles["services-container"]}>
