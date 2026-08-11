@@ -51,6 +51,17 @@ public class BookingController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Create(CreateBookingDto dto)
     {
+        // Check for overlapping bookings
+        var overlap = await _db.Bookings.AnyAsync(b =>
+            b.StartTime < dto.EndTime &&
+            b.EndTime > dto.StartTime
+        );
+
+        if (overlap)
+        {
+            return Conflict(new { message = "This time slot is already booked." });
+        }
+
         var booking = new Booking
         {
             CustomerId = dto.CustomerId,

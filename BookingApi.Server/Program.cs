@@ -3,14 +3,15 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
+var dbPath = builder.Environment.IsProduction()
+    ? "/app/data/booking.db"
+    : "booking.db";
+
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlite("Data Source=/app/data/booking.db"));
+    options.UseSqlite($"Data Source={dbPath}"));
 
 builder.Services.AddCors(options =>
 {
@@ -28,7 +29,6 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// Auto-migrate database on startup
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
@@ -39,18 +39,14 @@ app.UseCors("AllowReact");
 app.UseDefaultFiles();
 app.MapStaticAssets();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.MapFallbackToFile("/index.html");
 
 app.Run();

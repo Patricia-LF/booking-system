@@ -67,9 +67,11 @@ function BookingForm() {
 
     // Calculate endTime based on selected service duration
     const selectedService = services.find((s) => s.id === parseInt(serviceId));
-    const start = new Date(startTime);
-    const end = new Date(start);
+
+    const end = new Date(startTime);
     end.setMinutes(end.getMinutes() + selectedService!.durationMinutes);
+
+    const endTimeString = `${end.getFullYear()}-${String(end.getMonth() + 1).padStart(2, "0")}-${String(end.getDate()).padStart(2, "0")}T${String(end.getHours()).padStart(2, "0")}:${String(end.getMinutes()).padStart(2, "0")}`;
 
     setError("");
 
@@ -82,7 +84,7 @@ function BookingForm() {
           customerId: parseInt(customerId),
           serviceId: parseInt(serviceId),
           startTime: startTime,
-          endTime: end.toISOString().replace("Z", ""),
+          endTime: endTimeString,
         }),
       },
     );
@@ -92,6 +94,8 @@ function BookingForm() {
       setServiceId("");
       setStartTime("");
       fetchBookings();
+    } else if (response.status === 409) {
+      setError("This time slot is already booked. Please choose another time.");
     }
   }
 
@@ -152,8 +156,8 @@ function BookingForm() {
           />
 
           <button onClick={handleSubmit}>Create Booking</button>
-          {error && <p style={{ color: "red" }}>{error}</p>}
         </div>
+        {error && <p style={{ color: "red" }}>{error}</p>}
       </section>
 
       <section className={styles["bookings-container"]}>
