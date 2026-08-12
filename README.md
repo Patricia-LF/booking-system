@@ -1,17 +1,15 @@
 # Booking System — Exquisite Studio
 
-A full-stack booking system built as a side project to explore C# and REST API development.
+A full-stack booking system built as a side project to explore C# and backend development.
 
 ## Tech Stack
 
 **Backend**
-
 - C# / ASP.NET Core Web API (.NET 10)
 - Entity Framework Core
 - SQLite
 
 **Frontend**
-
 - React 19
 - TypeScript
 - Vite
@@ -22,9 +20,12 @@ A full-stack booking system built as a side project to explore C# and REST API d
 
 - Create and manage customers, services and bookings
 - Automatic end time calculation based on service duration
+- Double booking prevention
+- Input validation on both frontend and backend
 - Weekly calendar view with booking blocks
 - Toggle between calendar and table view
 - Bookings sorted by date and time
+- Responsive design with hamburger menu for mobile
 
 ## Project Structure
 
@@ -36,10 +37,6 @@ A full-stack booking system built as a side project to explore C# and REST API d
 - Backend: Railway
 - Frontend: Vercel
 
-## Status
+## Possible Future Improvements
 
-Under active development
-
-**Currently working on:** Responsive design for mobile.
-
-**Planned features:** Validation on the backend, prevent double bookings, authentication.
+- Authentication and user roles
