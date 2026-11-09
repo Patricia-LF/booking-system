@@ -1,6 +1,6 @@
 # Booking System — Exquisite Studio
 
-A full-stack booking system built as a side project to explore C# and REST API development.
+A full-stack booking system built as a side project to explore C# and backend development.
 
 ## Tech Stack
 
@@ -22,9 +22,12 @@ A full-stack booking system built as a side project to explore C# and REST API d
 
 - Create and manage customers, services and bookings
 - Automatic end time calculation based on service duration
+- Double booking prevention
+- Input validation on both frontend and backend
 - Weekly calendar view with booking blocks
 - Toggle between calendar and table view
 - Bookings sorted by date and time
+- Responsive design with hamburger menu for mobile
 
 ## Project Structure
 
@@ -56,3 +59,7 @@ npm run dev
 ```
 
 The frontend runs on `https://localhost:5173` and the backend on `https://localhost:7118`.
+
+## Possible Future Improvements
+
+- Authentication and user roles
