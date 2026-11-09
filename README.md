@@ -36,10 +36,23 @@ A full-stack booking system built as a side project to explore C# and REST API d
 - Backend: Railway
 - Frontend: Vercel
 
-## Status
+## Getting Started
 
-Under active development
+**Backend**
 
-**Currently working on:** Responsive design for mobile.
+Open `BookingApi.Server` in Visual Studio and press the run button, or run in terminal:
 
-**Planned features:** Validation on the backend, prevent double bookings, authentication.
+```bash
+cd BookingApi.Server
+dotnet run
+```
+
+**Frontend**
+
+```bash
+cd bookingapi.client
+npm install
+npm run dev
+```
+
+The frontend runs on `https://localhost:5173` and the backend on `https://localhost:7118`.
